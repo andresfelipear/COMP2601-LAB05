@@ -4,7 +4,7 @@
  * Custom exception class for handling errors related to diary entries.
  * Thrown when a diary entry's date or content is invalid.
  *
- * @author Andres Arevalo & Lida Zarei
+ * @author Andres Arevalo, Lida Zarei & Raaz
  * @version 1.0
  */
 public class DiaryEntryException extends Exception
