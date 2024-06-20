@@ -4,7 +4,7 @@ import java.util.Scanner;
 /**
  * Main
  *
- * @author Andres Arevlao & Lida Zarei
+ * @author Andres Arevlao, Lida Zarei & Raaz
  * @version 1.0
  */
 public class Main

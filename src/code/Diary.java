@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * Diary
  *
- * @author Andres Arevalo & Lida Zarei
+ * @author Andres Arevalo, Lida Zarei & Raaz
  * @version 1.0
  */
 public class Diary
@@ -15,6 +15,10 @@ public class Diary
     private static final String FILE_NAME;
     private static final int DATE;
     private static final int CONTENT;
+
+    private static final String ERROR_CREATING_FILE = "There was an error creating the file";
+    private static final String ERROR_CLOSING_FILE = "Error while closing the file";
+    private static final String ERROR_READING_FILE = "There was an error reading the file";
 
     static
     {
@@ -42,11 +46,12 @@ public class Diary
             fileWriter = new FileWriter(FILE_NAME, true);
             diaryEntry = new DiaryEntry(date, content);
 
-            fileWriter.write(String.format("%s|%s", date, content) + System.lineSeparator());
+            fileWriter.write(String.format("%s|%s", diaryEntry.getDate(), diaryEntry.getContent()) + System.lineSeparator());
         }
         catch (final IOException e)
         {
-            System.out.println("There was an error creating the file");
+            System.out.println(ERROR_CREATING_FILE);
+            System.out.println(e.getMessage());
         }
         catch (final DiaryEntryException e)
         {
@@ -63,7 +68,7 @@ public class Diary
             }
             catch(IOException e)
             {
-                System.out.println("Error while closing the file");
+                System.out.println(ERROR_CLOSING_FILE);
             }
         }
     }
@@ -102,7 +107,7 @@ public class Diary
         }
         catch (final IOException e)
         {
-            System.out.println("There was an error reading the file");
+            System.out.println(ERROR_READING_FILE);
         }
         catch (final DiaryEntryException e)
         {
@@ -119,7 +124,7 @@ public class Diary
             }
             catch(IOException e)
             {
-                System.out.println("Error while closing the file");
+                System.out.println(ERROR_CLOSING_FILE);
             }
         }
     }
@@ -163,7 +168,7 @@ public class Diary
         }
         catch (final IOException e)
         {
-            System.out.println("There was an error reading the file");
+            System.out.println(ERROR_READING_FILE);
         }
         catch (final DiaryEntryException e)
         {
@@ -180,7 +185,7 @@ public class Diary
             }
             catch(IOException e)
             {
-                System.out.println("Error while closing the file");
+                System.out.println(ERROR_CLOSING_FILE);
             }
         }
     }

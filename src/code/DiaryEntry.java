@@ -1,7 +1,7 @@
 /**
  * DiaryEntry
  *
- * @author Andres Arevalo & Lida Zarei
+ * @author Andres Arevalo, Lida Zarei & Raaz
  * @version 1.0
  */
 public class DiaryEntry
@@ -10,10 +10,14 @@ public class DiaryEntry
     private final String content;
 
     private static final String INVALID_CONTENT;
+    private static final String ERROR_INVALID_DATE;
+    private static final String ERROR_INVALID_CONTENT;
 
     static
     {
         INVALID_CONTENT = "bcit";
+        ERROR_INVALID_DATE = "Invalid date. It should be in the format YYYY-MM-DD";
+        ERROR_INVALID_CONTENT = "Invalid content %s. It can't be blank, null or equals to %s";
     }
 
     /**
@@ -45,7 +49,7 @@ public class DiaryEntry
         if(content == null || content.isBlank() || content.equalsIgnoreCase(INVALID_CONTENT))
         {
             throw new DiaryEntryException(
-                                            String.format("Invalid content %s. It can be blank, null or equals to %s",
+                                            String.format(ERROR_INVALID_CONTENT,
                                             content,
                                             INVALID_CONTENT));
         }
@@ -65,7 +69,7 @@ public class DiaryEntry
 
         if(!date.matches(regex))
         {
-            throw new DiaryEntryException("Invalid date. It should be in the format YYYY-MM-DD");
+            throw new DiaryEntryException(ERROR_INVALID_DATE);
         }
     }
 
