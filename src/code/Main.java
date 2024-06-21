@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-
 /**
  * Main
  *
@@ -42,6 +41,7 @@ public class Main
             switch(choice)
             {
                 case ADD_ENTRY:
+                {
                     System.out.println("Add an Entry.");
                     System.out.print("\nEnter the date(YYYY-MM-DD): ");
                     date = sc.next();
@@ -50,29 +50,39 @@ public class Main
                     System.out.print("Enter the content: ");
                     content = sc.nextLine();
 
-                    diary.addEntry(date, content);
+                    diary.addEntry(date,
+                                   content);
                     System.out.println();
                     break;
+                }
 
                 case VIEW_ENTRIES:
+                {
                     System.out.println("\nAll entries in my diary.");
                     diary.viewAllEntries();
                     break;
+                }
 
                 case SEARCH_BY_DATE:
+                {
                     System.out.print("\nSearch date(yyyy-mm-dd): ");
                     date = sc.next();
                     diary.searchEntriesByDate(date);
                     System.out.println();
                     break;
+                }
 
                 case EXIT:
+                {
                     exit = false;
                     break;
+                }
 
                 default:
+                {
                     System.out.println("\nInvalid Choice. Try Again.\n");
                     break;
+                }
             }
         }
     }
